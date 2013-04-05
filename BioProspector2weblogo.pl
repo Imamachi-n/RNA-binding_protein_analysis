@@ -12,7 +12,7 @@ my $file = $ARGV[0];
 my $number = $ARGV[1];
 
 #main####################################################
-open (IN,"<./hg19_UPF1_target_genes_3UTR_10bp_motif.result") || die;
+open (IN,"<./$file\.result") || die;
 
 my $flg=0;
 my $filehandle = 1;
@@ -37,7 +37,7 @@ while(my $line = <IN>){
 		}else{
 			$filehandle = 0;
 		}
-		open (OUT,">./hg19_UPF1_target_genes_3UTR_10bp_motif#$count\.fasta") || die;
+		open (OUT,">./$file\#$count\.fasta") || die;
 	}else{
 		if($line =~ /^>/){
 			print OUT "$line\n";
