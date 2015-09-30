@@ -64,6 +64,7 @@ for line in input_file:
                     continue
         print(line,seq_length,motif_count,sep="\t",end="\n",file=output_file)
     else:
+        print(line,'0','0',sep="\t",end="\n",file=output_file)
         print("ERROR: ",acc_id," does not exist in fasta file...",file=error_log)
         continue
 
