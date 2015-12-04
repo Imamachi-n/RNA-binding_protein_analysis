@@ -47,7 +47,7 @@ Filename=`basename ${GTFFile} .gtf`
 
 ###Find your motif from fasta file###
 #python3 ./scripts/motif_finding_from_fasta.py ${Filename}_3UTR_merged.fa ${Motif} ${Filename}_3UTR_merged_${MotifName}.result
-python3 ./scripts/Divide_motif_finding_data.py ${Filename}_3UTR_merged_${MotifName}.result ${Filename}_3UTR_merged_${MotifName}.txt 8
+#python3 ./scripts/Divide_motif_finding_data.py ${Filename}_3UTR_merged_${MotifName}.result ${Filename}_3UTR_merged_${MotifName}.txt 8
 
 ###Define motif sites on your genome###
 #python3 ./scripts/Define_motif_sites_on_genome.py ${Filename}_3UTR_merged_${MotifName}.result ${MotifLength} ${Filename}_3UTR_merged.bed ${Filename}_3UTR_merged_${MotifName}.bed
@@ -61,4 +61,14 @@ miRNAFilename=`basename ${miRNABedFile} .bed`
 CuffdiffGeneFilename=`basename ${CuffdiffGeneResultData} .diff`
 #python3 ./scripts/A_define_Representative_isoform_from_RNA-seq.py ${CuffdiffIsoformData} ${CuffdiffGeneFilename}.diff ${CuffdiffGeneFilename}_rep_isoform_list.txt
 
+###Compare representative isoform with PUM motifs/miRNA-binding sites###
+#python3 ./scripts/Compare_annotation_infor_with_motif_infor.py ${CuffdiffGeneFilename}_rep_isoform_list.txt ${Filename}_3UTR_merged_${MotifName}.txt ${Filename}_3UTR_merged_${MotifName}_for_NGS_dataset.txt
+#python3 ./scripts/Compare_annotation_infor_with_miRNA_infor.py ${CuffdiffGeneFilename}_rep_isoform_list.txt ${miRNAFilename}_trx_sites.txt ${miRNAFilename}_trx_sites_for_NGS_dataset.txt
+
+###Define 3'UTR length###
+#python3 ./scripts/Calc_3UTR_length.py ${Filename}_3UTR.bed ${CuffdiffGeneFilename}_rep_isoform_list.txt ${CuffdiffGeneFilename}_rep_isoform_list_3UTR_length.txt
+
+###Count miRNA-binding sites in the 3'UTR region of PUM1 targets###
+#python3 ./scripts/miRNA_number_counting.py PUM1_targets_miRNA.txt PUM1_targets_miRNA_count.txt 91
+#python3 ./scripts/miRNA_number_counting.py all_genes_miRNA.txt all_genes_miRNA_count.txt 12143
 
