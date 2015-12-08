@@ -3,5 +3,5 @@ Shell scripts and python/R scritps for the analysis of RNA-binding proteins(RBPs
 ***
 ##Topics
 -Simple motif finding  
--Conservation(phastCons46way/phyloP46way)  
--microRNA-binding sites analysis(TargetScan v7.0)  
+-Conservation (phastCons46way/phyloP46way)  
+-microRNA-binding sites analysis (TargetScan v7.0)  
