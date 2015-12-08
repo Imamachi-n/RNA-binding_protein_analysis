@@ -41,6 +41,9 @@ for line in error_file:
 for line in input_file:
     line = line.rstrip()
     data = line.split("\t")
+    chrom = data[0]
+    st = data[1]
+    ed = data[2]
     infor = data[3].split('|')
     miRNA_type = infor[2]
 
@@ -50,13 +53,13 @@ for line in input_file:
         if ID in error_dict:
             continue
         else:
-            print("\t".join(infor), sep="\t", end="\n", file=output_file)
+            print(chrom,infor[1],infor[2],st,ed,"\t".join(infor[5:]), sep="\t", end="\n", file=output_file)
     elif miRNA_type == 'miRNA':
         decoded_seq = re.match(regex_2, infor[8])
         ID = decoded_seq.group('Derives_from')
         if ID in error_dict:
             continue
         else:
-            print("\t".join(infor), sep="\t", end="\n", file=output_file)
+            print(chrom,infor[1],infor[2],st,ed,"\t".join(infor[5:]), sep="\t", end="\n", file=output_file)
     else:
         print('ERROR: ',data[3], end="\n")
