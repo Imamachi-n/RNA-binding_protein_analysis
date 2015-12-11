@@ -34,4 +34,4 @@ echo ${bowtiefile}.ini
 PARalyzer ${bowtiefile}.ini
 
 ###Convert CSV file into Bed6 file###
-python3 ./scripts/csv2bed6.py ${BowtieOutput}_clusters.csv ${BowtieOutput}_clusters.bed ${BowtieOutput}_clusters.fasta ${BowtieOutput}_clusters.result
+python3 ${ScriptDir}/csv2bed6.py ${BowtieOutput}_clusters.csv ${BowtieOutput}_clusters.bed ${BowtieOutput}_clusters.fasta ${BowtieOutput}_clusters.result
