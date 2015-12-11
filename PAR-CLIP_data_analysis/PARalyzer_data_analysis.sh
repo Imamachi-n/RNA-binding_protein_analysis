@@ -8,19 +8,30 @@
 ###Requisite###
 ##Software/Scripts##
 #estimate_conversion_pattern.py
+#make_ini_file_for_PARalyzer.py
 #csv2bed6.py
 
 ##dataset##
-#SRR309285_4SU_DMEM_PAR-CLIP_HuR_clusters.csv(PARalyzer_v1.1 output data)
+#SRR309285_4SU_DMEM_PAR-CLIP_HuR_4_result_ver3.bowtie(Default bowtie output)
 
 ###File PATH###
-BowtieOutput='SRR309285_4SU_DMEM_PAR-CLIP_HuR_4_result_ver3.bowtie'
-PARalyzerCSVOutput='SRR309285_4SU_DMEM_PAR-CLIP_HuR_clusters.csv'
+BowtieOutput=${1} #'SRR309285_4SU_DMEM_PAR-CLIP_HuR_4_result_ver3.bowtie'
+Genome2bitFile=${2} #'/home/akimitsu/database/genome/hg19.2bit'
+MinConversionLocations=${3}
+
+###PARalyzer scripts PATH###
+ScriptDir='/home/akimitsu/software/PARalyzer_v1_1/scripts'
 
 ###Estimate Conversion pattern###
 bowtiefile=`basename ${BowtieOutput} .bowtie`
-python3 estimate_conversion_pattern.py ${bowtiefile}.bowtie ${bowtiefile}_conversion.result
+python3 ${ScriptDir}/estimate_conversion_pattern.py ${bowtiefile}.bowtie ${bowtiefile}_conversion.result
+
+###Make .ini file for PARalyzer###
+python3 ${ScriptDir}/make_ini_file_for_PARalyzer.py ${bowtiefile} ${Genome2bitFile} ${MinConversionLocations} 5
+
+###Run PARalyzer###
+echo ${bowtiefile}.ini
+PARalyzer ${bowtiefile}.ini
 
 ###Convert CSV file into Bed6 file###
-filename=`basename ${PARalyzerCSVOutput} .csv`
-python3 ./scripts/csv2bed6.py ${filename}.csv ${filename}.bed ${filename}.fasta ${filename}.result
+python3 ./scripts/csv2bed6.py ${BowtieOutput}_clusters.csv ${BowtieOutput}_clusters.bed ${BowtieOutput}_clusters.fasta ${BowtieOutput}_clusters.result
