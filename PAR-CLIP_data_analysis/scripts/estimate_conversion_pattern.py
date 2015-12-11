@@ -22,11 +22,13 @@ for line in input_file:
             counter['NA'] += 1
         continue
     else:
-        conversion_location = conversion.split(':')[1]
-        if not conversion_location in counter:
-            counter[conversion_location] = 1
-        else:
-            counter[conversion_location] += 1
+        conversion_location_list = conversion.split(',')
+        for x in range(len(conversion_location_list)):
+            conversion_location = conversion_location_list[x].split(':')[1]
+            if not conversion_location in counter:
+                counter[conversion_location] = 1
+            else:
+                counter[conversion_location] += 1
         continue
 
 sum_count = 0
