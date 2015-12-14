@@ -7,8 +7,9 @@ genome_2bit = sys.argv[2]
 min_conversion_locations = sys.argv[3]
 min_read_count = sys.argv[4]
 
-output_path = bowtie_file + '.ini'
-ini_file = open(output_path, 'w')
+output_path = sys.argv[5]
+ini_path = output_path + '.ini'
+ini_file = open(ini_path, 'w')
 
 infor1 = 'BANDWIDTH=3'
 infor2 = 'CONVERSION=T>C'
@@ -38,9 +39,9 @@ infor22 = '#FILTER_FILE=./RepeatMasker/Satellite.txt=Satallite'
 infor23 = '#FILTER_FILE=./RepeatMasker/SINE.txt=SINE'
 infor24 = '#FILTER_FILE=./RepeatMasker/Unknown.txt=Unknown'
 
-infor25 = 'OUTPUT_DISTRIBUTIONS_FILE=' + bowtie_file + '_distribution.csv'
-infor26 = 'OUTPUT_GROUPS_FILE=' + bowtie_file + '_groups.csv'
-infor27 = 'OUTPUT_CLUSTERS_FILE=' + bowtie_file + '_clusters.csv'
+infor25 = 'OUTPUT_DISTRIBUTIONS_FILE=' + output_path + '_distribution.csv'
+infor26 = 'OUTPUT_GROUPS_FILE=' + output_path + '_groups.csv'
+infor27 = 'OUTPUT_CLUSTERS_FILE=' + output_path + '_clusters.csv'
 
 print(infor1, end="\n", file=ini_file)
 print(infor2, end="\n", file=ini_file)
