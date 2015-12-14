@@ -7,7 +7,7 @@ cluster_result = open(sys.argv[2], 'r')
 rep_infor = open(sys.argv[3], 'r')
 
 output_file = open(sys.argv[4], 'w')
-#fasta_file = open(sys.argv[5], 'w')
+fasta_file = open(sys.argv[5], 'w')
 
 seq_dict = {}
 
@@ -29,7 +29,7 @@ for line in clip_seq_pos:
     if int(st) < 0:
         continue
     seq = seq_dict[name]
-    infor = st + '|' + name
+    infor = st + '|' + seq
     if not refid in clip_dict:
         clip_dict[refid] = [infor]
     else:
@@ -50,6 +50,13 @@ for line in rep_infor:
         seq_line = '|'.join(seq_infor)
         motif_num = len(infor)
         print(line,st_line,seq_line,motif_num, sep="\t", end="\n", file=output_file)
+
+        for index in range(len(st_infor)):
+            st_index = st_infor[index]
+            name_index = data[1] + '|' + refid + '|' + str(st_index)
+            seq_index = seq_infor[index]
+            print('>',name_index, sep="",end="\n",file=fasta_file)
+            print(seq_index, sep="\t",end="\n",file=fasta_file)
         continue
     else:
         print(line,'NA','NA','NA', sep="\t",end="\n",file=output_file)

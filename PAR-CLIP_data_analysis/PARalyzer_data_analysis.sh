@@ -56,4 +56,4 @@ python3 ${ScriptDir}/A_define_Representative_isoform_from_RNA-seq.py ${CuffdiffI
 ###Extract CLIP-seq peaks in 3'UTR region of RefSeq transcripts###
 intersectBed -a ${Refseq3UTR} -b ./${savedir}/${bowtiefile}_clusters_B12.bed -wa -wb > ./${savedir}/${bowtiefile}_vs_RefSeq_3UTR.bed
 python3 ${ScriptDir}/Define_motif_sites_on_transcriptome.py ./${savedir}/${bowtiefile}_vs_RefSeq_3UTR.bed ./${savedir}/${bowtiefile}_trx_sites.txt
-python3 ${ScriptDir}/Compare_annotation_infor_with_CLIP-seq_peaks.py ./${savedir}/${bowtiefile}_trx_sites.txt ./${savedir}/${bowtiefile}_clusters.result ./${savedir}/${CuffdiffGeneFilename}_rep_isoform_list.txt ./${savedir}/${bowtiefile}_trx_sites_for_NGS_dataset.txt
+python3 ${ScriptDir}/Compare_annotation_infor_with_CLIP-seq_peaks.py ./${savedir}/${bowtiefile}_trx_sites.txt ./${savedir}/${bowtiefile}_clusters.result ./${savedir}/${CuffdiffGeneFilename}_rep_isoform_list.txt ./${savedir}/${bowtiefile}_trx_sites_for_NGS_dataset.txt ./${savedir}/${bowtiefile}_trx_sites_for_NGS_dataset.fasta
