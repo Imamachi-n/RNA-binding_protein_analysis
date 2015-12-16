@@ -1,0 +1,13 @@
+Annotated_3UTR=/home/akimitsu/Documents/database/annotation_file/Refseq_gene_hg19_June_02_2014_NM_only_extracted_3UTR_for_DaPars.bed
+Group1_Tophat_aligned_Wig=/home/akimitsu/Documents/data/CFIm25_study/RNA-seq/RNA-seq_siCTRL_S_131210_140107_merged_out/accepted_hits.bam.wig
+Group2_Tophat_aligned_Wig=/home/akimitsu/Documents/data/CFIm25_study/RNA-seq/RNA-seq_siCFlm25-1_131210_140107_merged_out/accepted_hits.bam.wig
+Output_directory=/home/akimitsu/Documents/data/CFIm25_study/RNA-seq/DaPars_result/
+Output_result_file=DaPars_result_siCTRL_S_vs_siCFIm25_1
+
+#Parameters
+Num_least_in_group1=1
+Num_least_in_group2=1
+Coverage_cutoff=30
+FDR_cutoff=0.05
+PDUI_cutoff=0.5
+Fold_change_cutoff=0.59
