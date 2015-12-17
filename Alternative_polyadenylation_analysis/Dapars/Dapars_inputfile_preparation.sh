@@ -52,6 +52,5 @@ for file in ${BamFileArray[@]}
 do
     filename=`basename ${file} .bam`
 	samtools index ${file}
-    #coverageBed -split -abam ${file} -b /share1/home/akimitsu/TCGA_data/RNA-Seq/Gencode_v19_selected_exon_each.bed > Gencode_v19_selected_exon_each.cov
 	bedtools genomecov -ibam ${file} -bg -split > ${file}.wig
 done

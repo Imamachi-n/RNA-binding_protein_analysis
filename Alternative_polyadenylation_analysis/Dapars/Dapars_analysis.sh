@@ -7,11 +7,7 @@
 
 ###Requisite###
 ##Software/Scripts##
-#gtf2bed.pl
-#Extract_RefSeq_NM.py
-#make_symbol_map.py
-#DaPars_Extract_Anno.py
-
+#DaPars_main.py
 #Bedtools
 
 ##dataset##
@@ -28,4 +24,4 @@ AnnoDir='/home/akimitsu/Documents/database/annotation_file'
 DaParsDir='/home/akimitsu/Documents/software/dapars-master/src'
 
 ###Run Dapars###
-python ${DaParsDir}/DaPars_main.py DaPars_configure2.txt
+python ${DaParsDir}/DaPars_main.py DaPars_configure.txt
