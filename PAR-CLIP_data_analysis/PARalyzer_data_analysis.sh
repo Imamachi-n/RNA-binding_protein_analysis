@@ -38,17 +38,17 @@ savedir=PARalyzer_result_${bowtiefile}_${flg}
 mkdir ${savedir} 
 
 ###Estimate Conversion pattern###
-#python3 ${ScriptDir}/estimate_conversion_pattern.py ${bowtiefile}.bowtie ./${savedir}/${bowtiefile}_conversion.result
+python3 ${ScriptDir}/estimate_conversion_pattern.py ${bowtiefile}.bowtie ./${savedir}/${bowtiefile}_conversion.result
 
 ###Make .ini file for PARalyzer###
-#python3 ${ScriptDir}/make_ini_file_for_PARalyzer.py ${bowtiefile} ${Genome2bitFile} ${MinConversionLocations} 5 ./${savedir}/${bowtiefile}
+python3 ${ScriptDir}/make_ini_file_for_PARalyzer.py ${bowtiefile} ${Genome2bitFile} ${MinConversionLocations} 5 ./${savedir}/${bowtiefile}
 
 ###Run PARalyzer###
 #echo ./${savedir}/${bowtiefile}.ini
-#PARalyzer ./${savedir}/${bowtiefile}.ini
+PARalyzer ./${savedir}/${bowtiefile}.ini
 
 ###Convert CSV file into Bed6 file###
-#python3 ${ScriptDir}/csv2bed6.py ./${savedir}/${bowtiefile}_clusters.csv ./${savedir}/${bowtiefile}_clusters.bed ./${savedir}/${bowtiefile}_clusters.fasta ./${savedir}/${bowtiefile}_clusters.result
+python3 ${ScriptDir}/csv2bed6.py ./${savedir}/${bowtiefile}_clusters.csv ./${savedir}/${bowtiefile}_clusters.bed ./${savedir}/${bowtiefile}_clusters.fasta ./${savedir}/${bowtiefile}_clusters.result
 
 ###Convert Bed6 into Bed12 file###
 python3 ${ScriptDir}/bed6tobed12.py ./${savedir}/${bowtiefile}_clusters.bed ./${savedir}/${bowtiefile}_clusters_B12.bed
